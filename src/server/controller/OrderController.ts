@@ -2,27 +2,23 @@ import { Request, Response } from "express";
 import { prisma } from "../database/prisma";
 
 export const createOrder = async (req: Request, res: Response) => {
-  const { userId } = req.params;
+  const { id } = req.user;
 
-  const isUserId = await prisma.user.findUnique({
+  const existUserId = await prisma.user.findUnique({
     where: {
-      id: userId,
+      id: id,
     },
   });
-  if (isUserId) {
+
+  if (!existUserId) {
     return res.send(400).json({ message: "usuário não existe" });
   }
 
   const order = await prisma.order.create({
     data: {
-      // Status:{
-      //   connect:{
-      //     status:
-      //   }
-      // },
       User: {
         connect: {
-          id: userId,
+          id: id,
         },
       },
     },

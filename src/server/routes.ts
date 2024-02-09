@@ -9,7 +9,7 @@ export const router = Router();
 
 router.post("/user", createUser)
 
-router.post("/order/:userId", authMiddleware(), createOrder)
+router.post("/order", authMiddleware(), createOrder)
 router.get("/order",authMiddleware(), getAllOrder);
 
 

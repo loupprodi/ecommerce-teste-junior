@@ -32,3 +32,23 @@ export const createUser = async (req: Request, res: Response) => {
     return res.status(400).json(error);
   }
 };
+
+
+export const getAllUser = async (req: Request, res: Response)=>{
+  try {
+    const users = await prisma.user.findMany({
+      select:{
+        id:true,
+        name: true,
+        email: true
+      }
+    });
+
+    if(!users){
+      return res.status(204).json({message:"Registro não encontrado"})
+    }
+    return res.status(200).json(users);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+}
