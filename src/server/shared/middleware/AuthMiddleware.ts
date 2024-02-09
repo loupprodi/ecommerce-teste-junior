@@ -23,8 +23,10 @@ export function authMiddleware() {
       const decodedToken = verify(token, MY_SECRET_KEY) as DecodedToken;
 
       req.user = {id: decodedToken.userId}
+
+      return next()
     } catch (error) {
-        
+        return res.status(401).json({message: "Token invalido"})
     }
   };
 }
