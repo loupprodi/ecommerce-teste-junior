@@ -5,15 +5,15 @@ export const createProduct = async (req: Request, res: Response) =>{
     const {name, description, price, amount} = req.body;
     const {orderId} = req.params;
 
-    // const isOrderExists = await prisma.order.findUnique({
-    //     where:{
-    //         id
-    //     }
-    // })
+    const isOrderExists = await prisma.order.findUnique({
+        where:{
+            id:orderId
+        }
+    })
 
-    // if(!isOrderExists){
-    //     return res.status(400).json(message:"Não existe pedido")
-    // }
+    if(!isOrderExists){
+        return res.status(400).json({message:"Não existe pedido"})
+    }
 
     const product = await prisma.product.create({
         data: {name, description, price, amount, order:{
