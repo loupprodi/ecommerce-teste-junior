@@ -23,6 +23,8 @@ export function authMiddleware() {
       const decodedToken = verify(token, MY_SECRET_KEY) as DecodedToken;
 
       req.user = {id: decodedToken.userId}
-    } catch (error) {}
+    } catch (error) {
+        
+    }
   };
 }
