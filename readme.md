@@ -1,6 +1,6 @@
 #App
 
-Como rodar a aplicação, tenha o docker instalado na maquina... checar o arquivo .env com login e senha do banco
+Como rodar a aplicação, tenha o docker instalado na maquina... checar o arquivo .env com login e senha do banco  
 comandos:
 
 instale todas as dependencias
@@ -11,7 +11,7 @@ configure também o MY_SECRET_KEY para o JWT
 
 > docker compose up -d
 
-após subir a imagem do banco de dados (postgres)rode o comando para gerar as tabelas    
+após subir a imagem do banco de dados (postgres) rode o comando para gerar as tabelas    
 
 > npx prisma migrate dev
 
