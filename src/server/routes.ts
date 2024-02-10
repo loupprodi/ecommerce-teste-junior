@@ -1,9 +1,10 @@
 import { Router } from "express";
 import { createUser } from "./controller/UserController";
 import { createOrder, getAllOrder } from "./controller/OrderController";
-import { createProduct, getAllproduct } from "./controller/ProductController";
+import { createProduct, deleteProduct, getAllproduct, updateProduct } from "./controller/ProductController";
 import { signIn } from "./controller/SessionController";
 import { authMiddleware } from "./shared/middleware/AuthMiddleware";
+import { orderDelivered, orderProcessing, orderSent } from "./controller/StatusController";
 
 export const router = Router();
 
@@ -15,7 +16,14 @@ router.get("/order",authMiddleware(), getAllOrder);
 
 router.post("/product/:orderId",authMiddleware() ,createProduct)
 router.get("/product",authMiddleware() , getAllproduct);
+router.put("/product/:productId", authMiddleware(), updateProduct)
+router.get("/product/:productId", authMiddleware(), updateProduct)
+router.delete("/product/:productId", authMiddleware(), deleteProduct)
 
+
+router.put("/status/:orderId", orderProcessing)
+router.put("/status/:orderId", orderSent)
+router.put("/status/:orderId", orderDelivered)
 
 
 

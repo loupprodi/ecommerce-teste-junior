@@ -5,6 +5,12 @@ declare global {
     interface Request {
       user: {
         id: string
+      },
+      status: {
+        NOVO
+        EM_PROCESSAMENTO
+        ENVIADO
+        ENTREGUE
       } 
     }
   }
