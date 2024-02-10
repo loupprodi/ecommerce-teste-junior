@@ -21,9 +21,9 @@ router.get("/product/:productId", authMiddleware(), updateProduct)
 router.delete("/product/:productId", authMiddleware(), deleteProduct)
 
 
-router.put("/status/:orderId", orderProcessing)
-router.put("/status/:orderId", orderSent)
-router.put("/status/:orderId", orderDelivered)
+router.put("/statusProcess/:orderId", orderProcessing)
+router.put("/statusSent/:orderId", orderSent)
+router.put("/statusDelivered/:orderId", orderDelivered)
 
 
 
