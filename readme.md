@@ -18,7 +18,8 @@ após subir a imagem do banco de dados (postgres) rode o comando para gerar as t
 start a aplicação  
 > npm run dev
 
-## RFs (Requisitos Funcionais)
+collections link: 
+> https://drive.google.com/file/d/1nlGE_1LKfHQRQWpDQn4PbP9fP5yUam2r/view?usp=drive_link
 
 ### Produto
 -[x] Deve adicionar um novo produto (Com código, nome, descrição, preço e estoque).  
