@@ -33,7 +33,6 @@ export const createUser = async (req: Request, res: Response) => {
   }
 };
 
-
 export const getAllUser = async (req: Request, res: Response)=>{
   try {
     const users = await prisma.user.findMany({

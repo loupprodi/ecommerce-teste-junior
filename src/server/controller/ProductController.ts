@@ -5,6 +5,10 @@ export const createProduct = async (req: Request, res: Response) => {
   const { name, description, price, amount } = req.body;
   const { orderId } = req.params;
 
+  if(!name || !price || price < 0 || amount <0 ){
+    return res.status(400).json({error: "Parâmetros inválidos."})
+  }
+
   const isOrderExists = await prisma.order.findUnique({
     where: {
       id: orderId,

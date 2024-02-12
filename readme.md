@@ -30,7 +30,7 @@ start a aplicação
 ### Pedidos
 -[x] Deve criar um novo pedido.  
 -[x] Deve Adicionar, modificar ou remover produtos no pedido.  
--[ ] Deve Listar pedidos.  
+-[x] Deve Listar pedidos.  
 -[x] Deve Atualizar o status de um pedido (ex.: novo, em processamento, enviado, entregue).  
 
 
@@ -42,21 +42,28 @@ start a aplicação
 
 ### Pedido
 
-GET /pedidos        busca todos os pedidos, com paginação e filtro, filtro por id 
-POST /pedidos       criar um novo pedido  
-GET /pedidos/:id    Busca apenas um pedido  
-PUT /pedidos/:id    atualiza um pedido pelo id  
-DELETE /pedidos/:id  apaga um pedido pelo id  
+GET /order        busca todos os pedido
+POST /order       criar um novo pedido  
+GET /order/:orderId    Busca apenas um pedido  
+PUT /order/:orderId    atualiza um pedido pelo id  
+DELETE /order/:orderId  apaga um pedido pelo id  
 
 ### Produto
 
-GET /produtos        busca todos os produtos, com paginação e filtro,  filtro por id
-POST /produtos       criar um novo produto    
-GET /produtos/:id    Busca apenas um produto    
-PUT /produtos/:id    atualiza um produto pelo id  
-DELETE /produtos/:id  apaga um produto pelo id   
+GET /product        busca todos os produtos
+POST /product       criar um novo produto    
+GET /product/:productId    Busca apenas um produto    
+PUT /product/:productId    atualiza um produto pelo id  
+DELETE /product/:productId  apaga um produto pelo id   
+
+### Status 
+PUT /statusProcess/:orderId    atualiza um pedido pelo id para processamento
+PUT /statusSent/:orderId    atualiza um pedido pelo id para enviado
+PUT /statusDelivered/:orderId    atualiza um pedido pelo id para entregue
+
+
 
 ### Login (PUBLICO)  
 
-POST /entrar        permite um usuário existe no sistema gerar um token para acessar os endpoints  
-POST /cadastrar     permite criar um novo usuário  
+POST /signIn     permite um usuário existe no sistema gerar um token para acessar os endpoints  
+POST /user     permite criar um novo usuário  
